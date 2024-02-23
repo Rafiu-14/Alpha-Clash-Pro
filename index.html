@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Clash Pro Game</title>
+    <!-- Css custom file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Daisy ui and Tailwind css -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/263d37f7c2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main class="min-h-screen bg-[#010313] bg-[url(images/background.png)] bg-no-repeat bg-center">
+        <!-- Home Page -->
+        <section id="start-page" class="home text-white flex justify-center items-center ">
+            <div class="flex flex-col items-center gap-10 mt-48">
+                <h1 class="anton text-8xl">ALPHABET CLASH</h1>
+                <p class="">Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
+                <button onclick="play()" class="btn bg-white text-[#010313] font-bold hover:bg-gray-300">Play Now</button>
+            </div>
+        </section>
+        <!-- Play Ground -->
+        <section id="playGround" class="hidden">
+            <div class="flex flex-col items-center gap-14 pt-7">
+                 <!-- Art Board -->
+                <div class="artboard artboard-horizontal phone-6 border-[20px] border-[#2f2941] rounded-xl bg-[#ffffffB3]">
+                    <div class="flex justify-center">
+                        <p class="bg-[#2f2941] px-5 pb-1 rounded-b-xl text-white poppins">Don't watch keyboard  while playing...</p>
+                    </div>
+                    <div class="flex justify-center items-center h-5/6">
+                        <p id="current-alphabets" class="text-black text-9xl font-bold uppercase">Y</p>
+                    </div>
+                </div>
+                <!--V keyboard V-->
+                <div>
+                    <div class="flex justify-center gap-1 my-1 w-full">
+                        <kbd id="q" class="kbd uppercase">q</kbd>
+                        <kbd id="w" class="kbd uppercase">w</kbd>
+                        <kbd id="e" class="kbd uppercase">e</kbd>
+                        <kbd id="r" class="kbd uppercase">r</kbd>
+                        <kbd id="t" class="kbd uppercase">t</kbd>
+                        <kbd id="y" class="kbd uppercase">y</kbd>
+                        <kbd id="u" class="kbd uppercase">u</kbd>
+                        <kbd id="i" class="kbd uppercase">i</kbd>
+                        <kbd id="o" class="kbd uppercase">o</kbd>
+                        <kbd id="p" class="kbd uppercase">p</kbd>
+                    </div> 
+                    <div class="flex justify-center gap-1 my-1 w-full">
+                        <kbd id="a" class="kbd uppercase">a</kbd>
+                        <kbd id="s" class="kbd uppercase">s</kbd>
+                        <kbd id="d" class="kbd uppercase">d</kbd>
+                        <kbd id="f" class="kbd uppercase">f</kbd>
+                        <kbd id="g" class="kbd uppercase">g</kbd>
+                        <kbd id="h" class="kbd uppercase">h</kbd>
+                        <kbd id="j" class="kbd uppercase">j</kbd>
+                        <kbd id="k" class="kbd uppercase">k</kbd>
+                        <kbd id="l" class="kbd uppercase">l</kbd>
+                    </div> 
+                    <div class="flex justify-center gap-1 my-1 w-full">
+                        <kbd id="z" class="kbd uppercase">z</kbd>
+                        <kbd id="x" class="kbd uppercase">x</kbd>
+                        <kbd id="c" class="kbd uppercase">c</kbd>
+                        <kbd id="v" class="kbd uppercase">v</kbd>
+                        <kbd id="b" class="kbd uppercase">b</kbd>
+                        <kbd id="n" class="kbd uppercase">n</kbd>
+                        <kbd id="m" class="kbd uppercase">m</kbd>
+                        <kbd id="/" class="kbd uppercase">/</kbd>
+                    </div>
+                </div>
+                <!-- Life and score -->
+                <div class="flex justify-between w-3/4">
+                    <button class="btn  bg-[#894189] text-white rounded-full poppins hover:bg-[#6e326e] border-none">
+                        Life
+                        <i class="fa-solid fa-heart-circle-bolt"></i>
+                        <span id="current-life">5</span>
+                      </button>
+                    <button class="btn bg-[#360490] text-white rounded-full poppins hover:bg-[#2e047a] border-none">
+                        Score
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        <span id="current-score">1</span>
+                      </button>
+                </div>
+            </div>
+        </section>
+        <!-- End Page -->
+        <section class="score flex justify-center items-center min-h-screen hidden">
+            <div class="glass w-[396px] h-[270px] bg-[#FFFFFF33] text-white space-y-7 text-center p-4 rounded-xl">
+                <h1 class="text-7xl">
+                    <span class="font-extrabold">Score:</span>
+                    <span class="">14</span>
+                </h1>
+                <button class="btn bg-white text-black border-none font-bold text-xl hover:bg-gray-300">Play Now</button>
+                <p class="text-xl">Practice will make you Pro</p>
+            </div>
+        </section>
+    </main>
+    <script src="JS/utility.js"></script>
+    <script src="JS/script.js"></script>
+</body>
+</html>
