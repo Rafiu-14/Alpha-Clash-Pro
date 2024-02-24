@@ -5,12 +5,16 @@ function handleKeyboardKeyUpEvent(event){
     const expectedAlphabets = currentAlphabets.toLowerCase()
     if(playerPressed === expectedAlphabets){
         console.log("Yeee! you pressed-",playerPressed,".You got a point")
-        removeBackgroundColorByID(expectedAlphabets)
-        const currentScoreElement = document.getElementById('current-score')
-        const currentScoreText = currentScoreElement.innerText
-        const currentScore = parseInt(currentScoreText)
+        
+        const currentScore = getTextElementByID('current-score')
         const newScore = currentScore + 1
-        currentScoreElement.innerText = newScore
+        setTextElementByID('current-score',newScore)
+        // const currentScoreElement = document.getElementById('current-score')
+        // const currentScoreText = currentScoreElement.innerText
+        // const currentScore = parseInt(currentScoreText)
+        // const newScore = currentScore + 1
+        // currentScoreElement.innerText = newScore
+        removeBackgroundColorByID(expectedAlphabets)
         gameLoop()
     }
     else{
@@ -20,6 +24,12 @@ function handleKeyboardKeyUpEvent(event){
         const currentLife = parseInt(currentLifeText)
         const newLife = currentLife - 1
         currentLifeElement.innerText = newLife
+        if(newLife === 0){
+            gameover()
+        }
+    }
+    if(playerPressed === 'Escape'){
+        gameover()
     }
 }
 document.addEventListener('keyup', handleKeyboardKeyUpEvent)
@@ -32,9 +42,26 @@ function gameLoop(){
     setBackgroundColorByID(alphabet)
 }
 
+function removeAlert(){
+    const rmv = document.getElementById('alert')
+    const alert = rmv.classList.add('hidden')
+    return(alert)
+}
 
 function play(){
     hideElementByID('start-page')
+    hideElementByID('final-score')
     showElementByID('playGround')
+    setTextElementByID('current-life',5)
+    setTextElementByID('current-score',0)
     gameLoop()
+}
+
+function gameover(){
+    hideElementByID('playGround')
+    showElementByID('final-score')
+    const lastScore = getTextElementByID('current-score')
+    setTextElementByID('last-score',lastScore)
+    const currentAlphabet = getElementTextByID('current-alphabets')
+    removeBackgroundColorByID(currentAlphabet)
 }
